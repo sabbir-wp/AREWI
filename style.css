@@ -1,0 +1,29 @@
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .card {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
+
+body.dark-mode .form-control {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+}
+
+body.dark-mode .btn-outline-secondary {
+    border-color: #666;
+    color: #fff;
+}
+
+body.dark-mode .btn-outline-secondary:hover {
+    background-color: #444;
+}
+
+#resultsPanel {
+    height: 300px;
+    overflow-y: auto;
+}
