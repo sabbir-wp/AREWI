@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Recon Engine</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./src/style.css">
+</head>
+
+<body class="bg-light">
+    <!-- Header -->
+    <nav class="navbar navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Advanced Recon Engine</a>
+            <button class="btn btn-outline-light" id="darkModeToggle">Dark Mode</button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container mt-4">
+        <!-- Target Input -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Enter Target</h5>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="targetInput" placeholder="example.com">
+                    <button class="btn btn-primary" onclick="setTarget()">Set Target</button>
+                </div>
+                <small class="text-muted">Enter a domain, IP, or API endpoint.</small>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Quick Actions</h5>
+                        <button class="btn btn-outline-danger w-100 mb-2" onclick="scanPorts()">Scan Ports</button>
+                        <button class="btn btn-outline-danger w-100 mb-2" onclick="checkSecurityHeaders()">Check Security Headers</button>
+                        <button class="btn btn-outline-danger w-100 mb-2" onclick="testSSL()">Test SSL/TLS</button>
+                        <button class="btn btn-outline-danger w-100 mb-2" onclick="runOWASPZAP()">Run OWASP ZAP Scan</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Panel -->
+            <div class="col-md-8">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Results</h5>
+                        <pre id="resultsPanel" class="bg-dark text-white p-3 rounded">Results will appear here...</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advanced Tools -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Advanced Tools</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Subdomain Discovery</h6>
+                        <button class="btn btn-outline-secondary w-100 mb-2" onclick="subdomainDork('crt.sh')">crt.sh</button>
+                        <button class="btn btn-outline-secondary w-100 mb-2" onclick="subdomainDork('securitytrails.com')">SecurityTrails</button>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Git Dorking</h6>
+                        <button class="btn btn-outline-secondary w-100 mb-2" onclick="gitDork('API Keys')">Search API Keys</button>
+                        <button class="btn btn-outline-secondary w-100 mb-2" onclick="gitDork('Database Credentials')">Search DB Credentials</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Dorking -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Custom Dorking</h5>
+                <textarea class="form-control mb-2" id="customDorkInput" placeholder="Enter your custom dork..."></textarea>
+                <button class="btn btn-outline-primary w-100" onclick="runCustomDork()">Run Custom Dork</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>Developed by <a href="https://github.com/freelancermijan" target="_blank">Mijanur Rahman</a></p>
+    </footer>
+
+    <script src="./src/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
